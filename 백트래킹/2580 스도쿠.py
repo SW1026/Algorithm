@@ -43,7 +43,8 @@ def dfs(idx):
         for i in range(9):
             # 빈칸이 없는, 완성된 행 출력
             print(*graph[i])
-        return
+        # return을 하면 여러 정답이 출력된다.(스도쿠가 가능한 모두의 수가 출력됨)
+        exit(0)
 
     x = blank[idx][0]
     y = blank[idx][1]
