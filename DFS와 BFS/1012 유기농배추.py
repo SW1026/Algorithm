@@ -1,43 +1,47 @@
-#1012 유기농배추
+# 배추 흰 지렁이의 최소 갯수 구하기
+# 초기 설계 : 각각의 배추가 심어진 땅을 돌면서, 방문 처리를 하는데
+# 한 번 씩 돌면서 배추가 있지만, 방문 하지 않은 땅이 보일 때마다 카운트 up.
+
+# 이후 추가 설계 : 한 번씩 돌 때 방문 하지 않은 땅을 파악하는게 어려웠음
+# 따라서 방문할 때 갈 수 없는 길로 만드는 방법을 선택.
+
+# 문제 좀 짜증나는게 가로랑 세로 좌표가 뒤바뀜.
 
 from collections import deque
 
-dx = [0, 0, 1, -1]
+dx = [0, 0, -1, 1]
 dy = [1, -1, 0, 0]
 
-def bfs(x_,y_):
+def bfs(x_, y_):
     q = deque()
-    q.append((x_,y_))
-    a[x_][y_] = 0       #a행렬은 전역변수여서 이렇게 사용
+    q.append([x_,y_])
     while q:
-        x,y = q.popleft()
+        x, y = q.popleft()
         for i in range(4):
             nx, ny = x+dx[i], y+dy[i]
-            if 0 <= nx < m and 0 <= ny <n and a[nx][ny]==1:
-                q.append((nx,ny))
-                a[nx][ny]=0 #한 지렁이가 보호하는 배추 표시 마킹
-    
-    
+            if 0<=nx<n and 0<=ny<m and a[nx][ny]:
+                q.append([nx, ny])
+                # 그래프를 0으로(갈 수 없는 길로) 초기화 해주는 것이 광건.
+                a[nx][ny] = 0
+
 def solution():
     cnt = 0
-    for i in range(m):
-        for j in range(n):
-            if a[i][j] == 1: #배추가 심어져 있다면
-                bfs(i,j) # 지렁이 하나가 배추 몇 개를 지킬 수 있는지 탐색[순차탐색의 느낌임 게다가 시간 낭비 있음]
-                cnt +=1 #지렁이 한 개 추가
-    print(cnt) #총 필요 지렁이 갯수 출력
-
+    for i in range(n):
+        for j in range(m):
+            if a[i][j] == 1:
+                bfs(i,j)
+                cnt += 1
+    print(cnt)
 
 T = int(input())
-for t in range(T):
+for _ in range(T):
     m, n, k = map(int, input().split())
-#    c = [[0]*n for _ in range(m)] #c는 필요없다... ㅎ a자체에서 직접 방문처리 
-    a = [[0]*n for _ in range(m)] # 행렬은 세로X가로 : m x n (여기서는 세로가 m)
-    rows = [list(map(int, input().split())) for _ in range(k)] #배추위치 튜플
-    for x,y in rows:
-        a[x][y] = 1 #행렬은 세로X가로
+    a = [[0]*m for _ in range(n)]
+    coordinate = [list(map(int, input().split())) for _ in range(k)]
+    for y, x in coordinate:
+        a[x][y] = 1
     solution()
 
-
-# n X m 행렬 이라고 보면 된다.
-# k는 배추 갯수
+# 고정 관념을 깨자..
+# 초기 설계를 할 때 코드가 잘 안 그려지면 그 때 고정관념을 깨 보자..
+# c는 필요 없다.
