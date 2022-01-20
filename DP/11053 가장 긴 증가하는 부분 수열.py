@@ -5,7 +5,6 @@ n = int(input())
 a = list(map(int, input().split()))
 
 d = [0] * n
-big = a[0]
 
 for i in range(n):
     for j in range(n):
