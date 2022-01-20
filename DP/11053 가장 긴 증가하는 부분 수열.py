@@ -16,3 +16,6 @@ for i in range(n):
 
 # 가장 끝 점이 모든 수열 중 가장 긴 수열은 아니다.(해당 n번째 원소를 포함한 수열에서는 가장 길겠지만)
 print(max(d))
+
+
+# https://bitwise.tistory.com/215 블로그 참고
