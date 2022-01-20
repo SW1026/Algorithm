@@ -10,6 +10,7 @@ for i in range(n):
     for j in range(i):
         # a[i]보다 작은 숫자 j중, 가장 길이가 긴 수열(j를 돌면서)을 찾는다.
         if a[i] > a[j] and d[i] < d[j]:
+            # 계속 갱신해준다.
             d[i] = d[j]
     d[i] += 1
 
