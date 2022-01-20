@@ -7,7 +7,7 @@ a = list(map(int, input().split()))
 d = [0] * n
 
 for i in range(n):
-    for j in range(n):
+    for j in range(i):
         # a[i]보다 작은 숫자 j중, 가장 길이가 긴 수열(j를 돌면서)을 찾는다.
         if a[i] > a[j] and d[i] < d[j]:
             d[i] = d[j]
@@ -18,3 +18,8 @@ print(max(d))
 
 
 # a[i]가 50일 때, 50보다 작은 수(x들)의 d[x] 값들을 검사하여 가장 큰 d[x] 값에 +1을 해주는 것
+# 좀 더 설명적인 코드
+# i가 현재, j가 이전의 인덱스들 (j의 범위 : 0~i)
+#if a[i] > a[j]:
+#    if d[i] < d[j]:
+#        d[i] = d[j]
