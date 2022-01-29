@@ -20,3 +20,14 @@ for key in c:
         elif key > a[mid]:
             start = mid + 1
     print(ans)
+
+    
+# 내장 함수를 써서 푸는 
+# from bisect import bisect_right
+# 
+# for key in c:
+#     h = bisect_right(a, key)
+#     if a[h-1] == key:
+#         print(1)
+#     else:
+#         print(0)
