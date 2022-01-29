@@ -8,6 +8,3 @@ a = list(set(map(tuple, a)))
 a.sort(key=lambda x: (x[1], x[0]))
 for i in a:
     print(i[0])
-    
-    
-# https://www.acmicpc.net/problem/1181
