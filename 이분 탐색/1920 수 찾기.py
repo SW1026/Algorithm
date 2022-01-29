@@ -1,9 +1,9 @@
 import sys
 
 n = int(sys.stdin.readline().strip())
-a = input().split()
+a = input().split() #원래는 map(int, input().split())
 m = int(sys.stdin.readline().strip())
-c = input().split()
+c = input().split() #원래는 map(int, input().split())
 
 a.sort()
 for key in c:
