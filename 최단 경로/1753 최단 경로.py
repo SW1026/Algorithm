@@ -1,37 +1,38 @@
-V, E = map(int, input().split())
-start = int(input())
-a = [[]*(V+1) for _ in range(V+1)]     # 가중치 그래프
-INF = int(1e9)
-c = [INF] * (V+1) # start부터의 거리
-
-
-#입력
-for _ in range(E):
-    u, v, w = map(int, input().split())
-    a[u].append([v,w])
-
 import heapq
 
+V, E = map(int, input().split())
+start = int(input())
+a = [[] * (V + 1) for _ in range(V + 1)]  # 가중치 그래프 [v, w]
+INF = int(1e9)
+c = [INF] * (V + 1)  # start부터의 거리(최소 거리가 될 그래프)
+
+
 def dijikstra(start):
-    q = []
-    heapq.heappush(q, (0, start))
+    q = [] # [w, v] 가중치가 낮은 배열로 min heap 된다.
     c[start] = 0
+    heapq.heappush(q, [c[start], start]) # 가중치, 정점
 
     while q:
-        dist, now = heapq.heappop(q)
-        if c[now] < dist:
+        now_w, now = heapq.heappop(q)
+        # 저장된 현재 거리가 Q에 꺼내온(최소를 갱신한) 거리보다 더 작다면(다음 노드의 비용을 계산하지 않아도 OK)
+        if c[now] < now_w:
             continue
 
-        for i in a[now]:
-            cost = c[now] + i[1]
-            if cost < c[i[0]]:
-                c[i[0]] = cost
-                heapq.heappush(q, (cost, i[0]))
+        # 그 다음 노드들의 거리를 갱신
+        for next, next_w in a[now]:
+            tmp = c[now] + next_w
+            # 갱신
+            if tmp < c[next]:
+                c[next] = tmp
+                # 가장 작을 것이라는 비용을 저장함.(현재까지의 최소 비용)
+                heapq.heappush(q, [tmp, next])
+
+
+# 입력
+for _ in range(E):
+    u, v, w = map(int, input().split())
+    a[u].append([v, w])
 
 dijikstra(start)
-for num in range(1, V+1):
+for num in range(1, V + 1):
     print("INF") if c[num] == INF else print(c[num])
-
-# https://seongonion.tistory.com/86 우선순위큐를 사용하지 않으면 시간 초과
-# https://reakwon.tistory.com/42 최소/최대힙 개념(우선순위 큐)
-# https://www.daleseo.com/python-heapq/ heapq 모듈 사용 법
