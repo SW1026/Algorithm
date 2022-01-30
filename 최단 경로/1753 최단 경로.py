@@ -33,3 +33,5 @@ for num in range(1, V+1):
     print("INF") if c[num] == INF else print(c[num])
 
 # https://seongonion.tistory.com/86 우선순위큐를 사용하지 않으면 시간 초과
+# https://reakwon.tistory.com/42 최소/최대힙 개념(우선순위 큐)
+# https://www.daleseo.com/python-heapq/ heapq 모듈 사용 법
