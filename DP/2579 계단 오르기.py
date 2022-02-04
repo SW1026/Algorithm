@@ -1,4 +1,7 @@
 # s : 점수, d : 점수 합
+# 마지막 계단(현 계단)을 꼭 밟는다는 가정이 있으므로 - 현 계단을 밟지 않는 경우를 고려X.
+# 1. 마지막 계단의 전 계단을 밟은 경우 2. 밟지 않은 경우
+# 점화식 : d[n] = max(d[n-3]+s[n-1]+s[n], d[n-2]+s[n])
 
 n = int(input())
 s = [0] * (n+1)
@@ -19,21 +22,7 @@ if n == 3:
     print(d[3])
     exit(0)
 for i in range(4, n+1):
+    #
     d[i] = max(d[i-3] + s[i-1] + s[i], d[i-2] + s[i])
 
 print(d[n])
-
-# 입력 주의 (s)
-
-# ---------------------------------------------------------------
-# n = int(input())
-# s = [0 for i in range(301)]
-# dp = [0 for i in range(301)]
-# for i in range(n):
-#     s[i] = int(input())
-# dp[0] = s[0]
-# dp[1] = s[0] + s[1]
-# dp[2] = max(s[1] + s[2], s[0] + s[2])
-# for i in range(3, n):
-#     dp[i] = max(dp[i - 3] + s[i - 1] + s[i], dp[i - 2] + s[i])
-# print(dp[n - 1])
