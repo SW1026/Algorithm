@@ -1,0 +1,9 @@
+negative cycle
+다익스트라 알고리즘(Dijkstra’s algorithm)과 달리 벨만-포드 알고리즘은 가중치가 음수인 경우에도 적용 가능합니다. 
+그러나 음수 가중치가 사이클(cycle)을 이루고 있는 경우에는 작동하지 않습니다. - 계속 음수로 갱신되므로
+=> 방지책 : relax 이후에도 값이 업데이트가 된다면, return false 로 처리함.
+
+dijkstra : O(|V|^2)
+Bellman-Ford's algorithm : O(|V|^3), 음수 edge 가능
+
+참고 : https://ratsgo.github.io/data%20structure&algorithm/2017/11/27/bellmanford/
