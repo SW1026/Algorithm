@@ -6,4 +6,6 @@ negative cycle
 dijkstra : O(|V|^2)
 Bellman-Ford's algorithm : O(|V|^3), 음수 edge 가능
 
+- RIP Protocol 에 사용 (AS 내의 라우팅테이블 갱신)
+
 참고 : https://ratsgo.github.io/data%20structure&algorithm/2017/11/27/bellmanford/
