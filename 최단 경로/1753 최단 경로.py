@@ -2,7 +2,7 @@ import heapq
 
 V, E = map(int, input().split())
 start = int(input())
-a = [[] * (V + 1) for _ in range(V + 1)]  # 가중치 그래프 [v, w]
+a = [[] for _ in range(V + 1)]  # 가중치 그래프 [v, w]
 INF = int(1e9)
 c = [INF] * (V + 1)  # start부터의 거리(최소 거리가 될 그래프)
 
