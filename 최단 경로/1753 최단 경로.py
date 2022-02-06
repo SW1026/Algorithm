@@ -6,7 +6,6 @@ a = [[] for _ in range(V + 1)]  # 가중치 그래프 [v, w]
 INF = int(1e9)
 c = [INF] * (V + 1)  # start부터의 거리(최소 거리가 될 그래프)
 
-
 def dijikstra(start):
     q = [] # [w, v] 가중치가 낮은 배열로 min heap 된다.
     c[start] = 0
@@ -27,12 +26,14 @@ def dijikstra(start):
                 # 가장 작을 것이라는 비용을 저장함.(현재까지의 최소 비용)
                 heapq.heappush(q, [tmp, next])
 
-
 # 입력
 for _ in range(E):
     u, v, w = map(int, input().split())
     a[u].append([v, w])
 
+# 실행
 dijikstra(start)
+
+# 결과 출력
 for num in range(1, V + 1):
     print("INF") if c[num] == INF else print(c[num])
