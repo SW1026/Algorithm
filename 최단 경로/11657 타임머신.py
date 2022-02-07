@@ -16,14 +16,14 @@ for _ in range(m):
 def bellman_ford(start):
     c = [INF] * (n + 1)
     c[1] = 0
-    # n번의 라운드를 반복한다.
+    # n번의 라운드를 반복한다. (n-1번째 edge-relaxaion 와 이후 갱신되는 값을 체크하기 위함)
     for i in range(n):
         for u in range(1, n+1):
             for w, v in a[u]:
-                # 출발 노드로부터 값이 무한대의 경우는 edge relaxaion 의 조건에 포함되지 않는다.
+                # 출발 노드로부터 값이 무한대의 경우는 edge-relaxaion 의 조건에 포함되지 않는다.
                 if c[v] > c[u] + w and c[u] != INF:
                     c[v] = c[u] + w
-                    # 라운드 끝인데 계속 값이 갱신 되면 음수 순환 존재
+                    # 모든 edge-relaxaion 끝난 후에도 계속 값이 갱신 되면 negative-cycle 존재
                     if i == n-1:
                         return False
     return c
