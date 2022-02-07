@@ -16,15 +16,15 @@ for _ in range(m):
 def bellman_ford(start):
     c = [INF] * (n + 1)
     c[1] = 0
-    # n-1 번의 라운드를 반복한다.
-    for i in range(n-1):
+    # n번의 라운드를 반복한다.
+    for i in range(n):
         for u in range(1, n+1):
             for w, v in a[u]:
                 # 출발 노드로부터 값이 무한대의 경우는 edge relaxaion 의 조건에 포함되지 않는다.
                 if c[v] > c[u] + w and c[u] != INF:
                     c[v] = c[u] + w
-                    # 라운드 끝인데(n-1번째) 계속 값이 갱신 되면 음수 순환 존재
-                    if i == n-2:
+                    # 라운드 끝인데 계속 값이 갱신 되면 음수 순환 존재
+                    if i == n-1:
                         return False
     return c
 
