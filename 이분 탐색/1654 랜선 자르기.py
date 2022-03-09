@@ -15,3 +15,7 @@ while start <= end:
     else:
         start = mid + 1
 print(end)
+
+
+# 출력이 print(end)이기 때문에 sum(b) == n 인 경우에도
+# end 값이 변경이 되지 않아서, 정답. (나무자르기 와 비교)
