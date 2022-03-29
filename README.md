@@ -15,3 +15,11 @@ https://wiki.python.org/moin/TimeComplexity
 ### input 보단, sys.stdin.readline 사용
 - input = sys.stdin.readline 선언 후 input 사용
 - 이 속도 차이로, 성공/시간초과로 갈리는 문제들이 있다.
+
+
+### 속도 관련 주의 사항
+
+- 어떤 수의 K제곱은 O(logK)만에 구할 수 있다.
+- big-O 표기법에서 log는 밑이 2인 로그
+- for문 1억 번 당 1초 (중첩일 경우 한 for문의 연산 갯수들을 곱한 수)
+- for문에 연루된 수식 연산을 줄이면(레지스터에 저장하면), 그 만큼 연산이 시간이 줄어든다.
