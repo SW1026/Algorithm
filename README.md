@@ -27,3 +27,4 @@ https://wiki.python.org/moin/TimeComplexity
 
 ### 피보나치수
 https://www.acmicpc.net/blog/view/28
+![image](https://user-images.githubusercontent.com/39516757/160544006-fd13c72e-ae58-41eb-9869-4367420fa30a.png)
