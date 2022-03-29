@@ -23,3 +23,7 @@ https://wiki.python.org/moin/TimeComplexity
 - big-O 표기법에서 log는 밑이 2인 로그
 - for문 1억 번 당 1초 (중첩일 경우 한 for문의 연산 갯수들을 곱한 수)
 - for문에 연루된 수식 연산을 줄이면(레지스터에 저장하면), 그 만큼 연산이 시간이 줄어든다.
+
+
+### 피보나치수
+https://www.acmicpc.net/blog/view/28
