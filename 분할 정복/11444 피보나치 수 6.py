@@ -17,3 +17,6 @@ def fibo(x):
 print(fibo(n) % p)
 
 
+# dictionary => 필요한 값만 딱 메모이제이션 가능.(key-value 개념이라)
+# 리스트로 하면 index값에 구애받음 => 메모리초과
+# 피보나치의 홀수 / 짝수 공식 이용
