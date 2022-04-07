@@ -23,6 +23,10 @@ def dijkstra(start, end):
     heappush(heap, [0, start])
     while heap:
         dist, now = heappop(heap)
+        
+        # 논리 : 1. 방문하면 이미 최소값이 갱신되어있음(우선순위 큐의 원리로 인해) 2. 이미 최소값이 된 노드지만, 그 값을 이용하여 큐에 남은 불필요한 노드를 없앰
+        # 1. if d[now] != inf : continue
+        # 2. 방법은 비교 후 continue 
         if d[now] < dist:
             continue
 
