@@ -1,0 +1,12 @@
+우선순위 큐(최소 힙) : heapq 모듈 사용
+
+# 사용 예제
+from heapq import heappush, heappop
+
+heap = []
+heappush(heap, number)
+heappop(heap)
+
+...
+
+
